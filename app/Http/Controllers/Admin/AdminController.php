@@ -113,7 +113,7 @@ class AdminController extends Controller
             'forename' => 'required|max:255',
             'surname' => 'required|max:255',
             'dateOfBirth' => 'date|before:today',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
   
