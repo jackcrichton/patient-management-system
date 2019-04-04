@@ -85,19 +85,19 @@
 
                         <button type="submit" class="btn btn-primary float-right">Create Doctor</button>
                     </form>
+                    
                     @if($errors->any())
-                    <div class="alert alert-danger" role="alert">
-                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($errors->all() as $error)
 
-                        {{ $error }}
+                            {{ $error }}
 
-                        @endforeach
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                            @endforeach
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     @endif
-
                 </div>
             </div>
         </div>

@@ -40,8 +40,7 @@
 			                                <th></th>
 			                            </tr>
 			                        </thead>
-
-			                        {{dd($unsetMedication)}}
+			                        
 		                            @foreach($unsetMedication as $medication)
 			                            <tbody>
 		                                    <tr>

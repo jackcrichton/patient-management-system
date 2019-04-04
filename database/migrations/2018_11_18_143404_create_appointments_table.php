@@ -20,6 +20,7 @@ class CreateAppointmentsTable extends Migration
             $table->foreign('doctorId')->references('id')->on('users')->where('account_type', 'doctor');
             $table->text('reasonForVisit');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
