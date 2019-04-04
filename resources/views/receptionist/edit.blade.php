@@ -34,7 +34,7 @@
 
                                     <select class="form-control" name="title" id="title" value="{{ $patient->title }}">
                                         @foreach($titles as $title)
-                                            <option value="{{ $patient->title }}" {{ $patient->title == $title ? 'selected' : ''}}>{{ $title }}</option>
+                                            <option>{{ $title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -143,7 +143,7 @@
                             <br>
 
                             <button type="submit" class="btn btn-primary float-right">
-                                Add Patient
+                                Save Patient
                             </button>
                         </form>
 

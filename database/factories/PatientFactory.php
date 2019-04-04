@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Patient::class, function (Faker $faker) {
     return [
-        'title' => $faker->title,
+        'title' => $faker->randomElement($array = array('Dr', 'Mr', 'Miss', 'Mrs', 'Ms')),
         'forename' => $faker->firstName,
         'surname' => $faker->lastName,
         'dateOfBirth' => $faker->date($format = 'Y-m-d', $max = 'now'),
