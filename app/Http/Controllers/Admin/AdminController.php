@@ -66,6 +66,8 @@ class AdminController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]); 
 
+        try{
+        
         $admin = User::create([
             'title' =>  $request->title,
             'forename' => $request->forename,
@@ -80,6 +82,22 @@ class AdminController extends Controller
         flash('Admin account created.')->success();
 
         return redirect('admin');
+            
+            
+                        
+            }
+catch(\Illuminate\Database\QueryException $e) {
+    
+   if($e->getCode() == '23000'){
+       flash("Email already exists. Please try again")->error();
+   }
+    if($e->getCode() == '22007'){
+       flash("Date format incorrect. Please try again using (YYYY-MM-DD).")->error();
+   }
+    return redirect()->route('admin.index');
+
+
+}
     }
 
     /**
@@ -117,6 +135,7 @@ class AdminController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
   
+        try{
         $admin->title = $request->title;
         $admin->forename = $request->forename;
         $admin->surname = $request->surname;
@@ -125,9 +144,28 @@ class AdminController extends Controller
         $admin->password = $request->password;
         $admin->save();
 
+            
+            
         flash('Admin details updated.')->success();
-  
+            
         return redirect()->route('admin.index');
+
+            
+            }
+catch(\Illuminate\Database\QueryException $e) {
+    
+   if($e->getCode() == '23000'){
+       flash("Email already exists. Please try again")->error();
+       
+   }
+    if($e->getCode() == '22007'){
+       flash("Date format incorrect. Please try again using (YYYY-MM-DD).")->error();
+   }
+    return redirect()->route('admin.index');
+
+
+}
+  
     }
 
     /**
