@@ -1,0 +1,94 @@
+@extends('layouts.app')
+
+@section('content')
+	<div class="container">
+	    <div class="row justify-content-center">
+	        <div class="col-md-8">
+	        	<div class="card">
+                    <div class="card-body">
+            	  		<div class="container">
+                    		<div class="row">
+                    			<div class="col-md-11">
+	                				<h5 class="card-title">Update Admin</h5>
+	                			</div>
+
+	                			<div class="col-md-1">
+	                				<a href="/admin">
+						            	<button class="btn btn-primary float-right">Back</button>
+						            </a>
+	                			</div>
+	                		</div>
+            			</div>
+	                	<hr>
+
+	                    <form method="POST" action="{{ route('admin.update', $admin->id) }}">
+                    	{{ csrf_field() }}
+                    	@method('PUT')
+
+							<div class="row">
+                                <div class="col-md-2">
+                                    <label for="comment">Title</label>
+
+                                    <select class="form-control" name="title" id="title" required>
+                                        @foreach($titles as $title)
+                                            <option value="{{ $admin->title }}" {{ $admin->title == $title ? 'selected' : ''}}>{{ $title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label for="comment">Forename</label>
+
+                                    <input class="form-control" name="forename" id="forename" value="{{ $admin->forename }}" required>
+                                </div>
+
+                                 <div class="col-md-5">
+                                    <label for="comment">Surname</label>
+
+                                    <input class="form-control" name="surname" id="surname" value="{{ $admin->surname }}" required>
+                                </div>
+                            </div>  
+
+                            <br>
+
+		                    <div class="row">
+                              	<div class="col-md-6">
+									<label for="comment">Date Of Birth</label>
+
+							    	<input class="form-control" type="date" name="dateOfBirth" id="dateOfBirth" value="{{ $admin->dateOfBirth }}" required>
+							    </div>
+
+							    <div class="col-md-6">
+                          			<label for="comment">Email</label>
+
+	                                <input type="text" class="form-control" id="email" name="email" value="{{ $admin->email }}" required>
+		                        </div>
+		                    </div>	
+
+		                    <br>
+
+		                    <div class="row">
+							    <div class="col-md-12">
+                          			<label for="comment">Password</label>
+
+	                                <input type="text" class="form-control" id="password" name="password" value="{{ $admin->password }}" required>
+		                        </div>
+		                    </div>
+		                    
+		                    <br>
+
+							<button type="submit" class="btn btn-primary float-right">Save Admin</button>
+                		</form>
+
+	                    <form method="POST" action="{{ route('admin.destroy', $admin )}}">
+						{{ csrf_field() }}
+						@method('DELETE')
+
+							<button role="button" type="submit" class="btn btn-danger float-left">Remove Admin</button>
+						</form>
+                    </div>
+                </div>
+	        </div>
+	    </div>
+	</div>
+@endsection
