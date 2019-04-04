@@ -63,7 +63,7 @@
 
                             <a class="float-left" style="margin-right: 10px">
                                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Toggle all patients
+                                    Toggle other patients
                                 </button>
                             </a>
 
@@ -156,7 +156,7 @@
                         <div class="card-header" id="headingTwo">
                             <h5 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    All Patients ({{ $allPatients->count() }})
+                                    Other Patients ({{ $allPatients->count() }})
                                 </button>
                             </h5>
                         </div>
