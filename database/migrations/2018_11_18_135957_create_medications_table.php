@@ -18,6 +18,7 @@ class CreateMedicationsTable extends Migration
             $table->string('name');
             $table->text('dose');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

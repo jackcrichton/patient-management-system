@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +10,7 @@ use Carbon\Carbon;
 
 class User extends Authenticatable
 {
+    use softDeletes;
     use Notifiable;
 
     const ADMIN_TYPE_SUPERADMIN = 'superadmin';

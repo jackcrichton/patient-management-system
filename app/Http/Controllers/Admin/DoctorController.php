@@ -60,20 +60,19 @@ class DoctorController extends Controller
         flash('Doctor account created.')->success();
 
         return redirect('admin');
-            
-            
                         
         }
             catch(\Illuminate\Database\QueryException $e) {
                 
-               if($e->getCode() == '23000'){
+                if($e->getCode() == '23000'){
                    flash("Email already exists. Please try again")->error();
-               }
-                if($e->getCode() == '22007'){
-                   flash("Date format incorrect. Please try again using (YYYY-MM-DD).")->error();
-               }
-                return redirect()->route('admin.index');
+                }
 
+                if($e->getCode() == '22007'){
+                    flash("Date format incorrect. Please try again using (YYYY-MM-DD).")->error();
+                }
+
+            return redirect()->route('admin.index');
         }
     }
 

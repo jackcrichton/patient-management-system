@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class patientMedicalRecordLog extends Model
 {
+	use softDeletes;
+	
     public $fillable = ['patientMedicationId', 'doctorId', 'type', 'patientId', 'medicationId', 'start_date', 'end_date', 'quantity', 'notes'];
 
     public function medication()

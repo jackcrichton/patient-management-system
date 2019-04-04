@@ -19,6 +19,7 @@ class CreateAllergiesTable extends Migration
             $table->string('name');
             $table->string('agent');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

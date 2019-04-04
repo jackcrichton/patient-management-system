@@ -81,7 +81,7 @@
 		                                    <span class="input-group-text">Date Of Birth</span>
 		                                </div>
 
-		                                <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth" value="{{ $patient->dateOfBirth }}" required>
+		                                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="{{ $patient->dateOfBirth }}" required>
 		                            </div>  
 		                        </div>
 
@@ -93,7 +93,7 @@
 
 		                                <select class="custom-select" id="sex" name="sex" value="{{ $patient->sex }}" required>
 		                                    @foreach($sex as $s)
-		                                    	<option value="{{ $patient->sex }}" {{ $patient->sex == $s ? 'selected' : ''}}>{{ $s }}</option>
+		                                    	<option>{{ ucfirst($s) }}</option>
 	                                    	@endforeach	
 		                                </select>
 		                            </div>  
@@ -164,7 +164,7 @@
 	                            @foreach ($errors->all() as $error)
 	                            	{{ $error }}
 	                            @endforeach
-	                            
+
 	                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	                                <span aria-hidden="true">&times;</span>
 	                            </button>

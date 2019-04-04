@@ -27,6 +27,7 @@ class CreateVisitorLogTable extends Migration
             $table->text('visitReason');
             $table->text('comments');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
