@@ -85,6 +85,12 @@
 
                         <button type="submit" class="btn btn-primary float-right">Create Doctor</button>
                     </form>
+                     @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                    @endforeach
+                    @endif
+                    
                 </div>
             </div>
         </div>

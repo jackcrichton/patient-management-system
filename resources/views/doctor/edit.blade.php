@@ -91,6 +91,13 @@
 
                         <button role="button" type="submit" class="btn btn-danger float-left">Remove Doctor User</button>
                     </form>
+                    
+                     @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                    @endforeach
+                    @endif
+                    
                 </div>
             </div>
         </div>
