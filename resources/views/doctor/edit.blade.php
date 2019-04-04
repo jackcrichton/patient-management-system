@@ -71,11 +71,11 @@
                             <div class="col-md-12">
                                 <label for="comment">Password</label>
 
-                                <input type="password" class="form-control" id="password" name="password" value="{{ $admin->password }}" required>
+                                <input type="password" class="form-control" id="password" name="password" value="{{ $doctor->password }}" required>
 
                                 <label for="comment">Confirm Password</label>
 
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ $admin->password }}" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ $doctor->password }}" required>
                             </div>
                         </div>
 
