@@ -35,7 +35,7 @@
 
 		                                <select class="custom-select" id="title" name="title" value="{{ $patient->title }}" required>
 		                                    @foreach($titles as $title)
-		                                    	<option value="{{ $patient->title }}" {{ $patient->title == $title ? 'selected' : ''}}>{{ $title }}</option>
+		                                    	<option>{{ $title }}</option>
 	                                    	@endforeach	
 		                                </select>
 		                            </div>  
@@ -158,6 +158,18 @@
 
 							<button type="submit" class="btn btn-primary float-right">Save Patient</button>
                 		</form>
+
+                		@if($errors->any())
+	                        <div class="alert alert-danger" role="alert">
+	                            @foreach ($errors->all() as $error)
+	                            	{{ $error }}
+	                            @endforeach
+	                            
+	                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                                <span aria-hidden="true">&times;</span>
+	                            </button>
+	                        </div>
+                   		@endif
                     </div>
                 </div>
 	        </div>

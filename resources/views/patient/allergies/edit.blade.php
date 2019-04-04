@@ -9,7 +9,7 @@
                     	<div class="container">
                     		<div class="row">
                     			<div class="col-md-11">
-	                				<h5 class="card-title">Edit allergy informationfor {{ $patient->title }} {{ $patient->forename }} {{ $patient->surname }}</h5>
+	                				<h5 class="card-title">Edit allergy information for {{ $patient->title }} {{ $patient->forename }} {{ $patient->surname }}</h5>
 	                			</div>
 
 	                			<div class="col-md-1">
@@ -31,8 +31,9 @@
 									<label for="comment">Reaction Severity:</label>
 
 									<select class="custom-select" name="reactionSeverity" id="reactionSeverity"  value="{{ $patientAllergy->reactionSeverity }}" required>
+
 										@foreach($severity as $s)
-											<option value="{{ $patientAllergy->reactionSeverity }}" {{ $patientAllergy->reactionSeverity == $s ? 'selected' : ''}}>{{ $s }}</option>
+											<option>{{ $s }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -41,14 +42,13 @@
 					            <div class="form-group">
 									<label for="comment">Reaction:</label>
 
-									<textarea class="form-control" rows="5" name="reaction" id="reaction" value="{{ $patientAllergy->reaction }}" required></textarea>
+									<input class="form-control" type="text" name="reaction" id="reaction" value="{{ $patientAllergy->reaction }}" required>
 								</div>
 
 					            <div class="form-group">
 									<label for="comment">Source of Information:</label>
 
 									<select class="custom-select" name="sourceOfInfo" id="sourceOfInfo" value="{{ $patientAllergy->sourceOfInfo }}"  required>
-										<option selected></option>
 
 										@foreach($sourceOfInfo as $s)
 											<option value="{{ $patientAllergy->sourceOfInfo }}" {{ $patientAllergy->sourceOfInfo == $s ? 'selected' : ''}}>{{ $s }}</option>
@@ -60,8 +60,7 @@
 									<label for="comment">Status:</label>
 
 									<select class="custom-select" name="status" id="status" value="{{ $patientAllergy->status }}"  required>
-										<option selected></option>
-
+										
 										@foreach($status as $s)
 											<option>{{ $s }}</option>
 										@endforeach
@@ -77,6 +76,18 @@
 
 								<button role="button" type="submit" class="btn btn-danger float-left">Remove allergy</button>
 							</form>
+
+							 @if($errors->any())
+		                        <div class="alert alert-danger" role="alert">
+		                            @foreach ($errors->all() as $error)
+	                           	    	{{ $error }}
+		                            @endforeach
+
+		                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		                                <span aria-hidden="true">&times;</span>
+		                            </button>
+		                        </div>
+		                    @endif
 		        		</div>
 	        		</div>
 	        	</div>

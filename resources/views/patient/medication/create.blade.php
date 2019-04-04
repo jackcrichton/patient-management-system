@@ -41,6 +41,7 @@
 			                            </tr>
 			                        </thead>
 
+			                        {{dd($unsetMedication)}}
 		                            @foreach($unsetMedication as $medication)
 			                            <tbody>
 		                                    <tr>
@@ -108,6 +109,19 @@
 
 															        	<button role="button" type="submit" class="btn btn-primary float-right">Add Medication</button>
 															        </div>
+
+															         @if($errors->any())
+												                        <div class="alert alert-danger" role="alert">
+												                            @foreach ($errors->all() as $error)
+
+												                            {{ $error }}
+
+												                            @endforeach
+												                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												                                <span aria-hidden="true">&times;</span>
+												                            </button>
+												                        </div>
+												                    @endif
 														    	</div>
 														  	</div>
 														</div>

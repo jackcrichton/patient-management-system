@@ -41,11 +41,10 @@
 						       <div class="form-group">
 									<label for="comment">Quantity</label>
 
-									<select class="custom-select" name="quantity" id="quantity" required>
-									<option selected></option>
+									<select class="custom-select" name="quantity" id="quantity" value="{{ $patientMedication->quantity }}" required>
 
 									<?php for ($i = 1; $i <= 20; $i++) : ?>
-								        <option value="{{ $patientMedication->quantity }}" {{ $patientMedication->quantity == $i ? 'selected' : ''}}><?php echo $i; ?></option>
+								        <option><?php echo $i; ?></option>
 								    <?php endfor; ?>
 
 									</select>
@@ -55,7 +54,7 @@
 									 <div class="form-group">
 									<label for="comment">Notes:</label>
 
-									<textarea class="form-control" rows="5" name="notes" id="notes" value="{{ $patientMedication->notes }}" required></textarea>
+									<input class="form-control" type="text" name="notes" id="notes" value="{{ $patientMedication->notes }}" required>
 								</div>
 
 								<button role="button" type="submit" class="btn btn-primary float-right">Save</button>
@@ -67,6 +66,18 @@
 
 								<button role="button" type="submit" class="btn btn-danger float-left">Remove medication</button>
 							</form>
+
+							 @if($errors->any())
+                    		    <div class="alert alert-danger" role="alert">
+		                            @foreach ($errors->all() as $error)
+		                            	{{ $error }}
+		                            @endforeach
+		                            
+		                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		                                <span aria-hidden="true">&times;</span>
+		                            </button>
+		                        </div>
+		                    @endif
 		        		</div>
 	        		</div>
 	        	</div>

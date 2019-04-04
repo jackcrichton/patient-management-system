@@ -29,9 +29,9 @@
                             <div class="col-md-2">
                                 <label for="comment">Title</label>
 
-                                <select class="form-control" name="title" id="title" required>
+                                <select class="form-control" name="title" id="title" value="{{ $admin->title }}" required>
                                     @foreach($titles as $title)
-                                    <option value="{{ $admin->title }}" {{ $admin->title == $title ? 'selected' : ''}}>{{ $title }}</option>
+                                        <option>{{ $title }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -76,11 +76,8 @@
                                 <label for="comment">Confirm Password</label>
 
                                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ $admin->password }}" required>
-
                             </div>
                         </div>
-
-
 
                         <br>
 
@@ -95,16 +92,15 @@
                     </form>
 
                     @if($errors->any())
-                    <div class="alert alert-danger" role="alert">
-                        @foreach ($errors->all() as $error)
-
-                        {{ $error }}
-
-                        @endforeach
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }}
+                            @endforeach
+                            
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     @endif
                 </div>
             </div>

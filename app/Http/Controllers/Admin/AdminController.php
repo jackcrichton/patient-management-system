@@ -64,7 +64,6 @@ class AdminController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'dateOfBirth' => 'date|before:today',
             'password' => 'required|string|min:6|confirmed',
-            
         ]); 
 
         $admin = User::create([
