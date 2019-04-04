@@ -74,7 +74,7 @@
                                 <label for="comment">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                                 <label for="comment">Confirm Password</label>
-                                <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                             </div>
                         </div>
 
