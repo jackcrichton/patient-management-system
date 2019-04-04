@@ -68,7 +68,7 @@
                                 <div class="col-md-6">
                                     <label for="comment">Date Of Birth</label>
 
-                                    <input class="form-control" type="date" name="dateOfBirth" id="dateOfBirth" value="{{ $patient->dateOfBirth }}" required>
+                                    <input class="form-control" type="date" name="dateOfBirth" id="dateOfBirth" required>
                                 </div>
                             </div>  
 
