@@ -88,11 +88,11 @@ class DoctorController extends Controller
         $doctor = User::where('id', $id)->first();
 
         $request->validate([
-            'title' => 'required',
-            'forename' => 'required',
-            'surname' => 'required',
-            'dateOfBirth' => 'required',
-            'email' => 'required',
+            'title' => 'required|max:255',
+            'forename' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'dateOfBirth' => 'date|before:today',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
   
