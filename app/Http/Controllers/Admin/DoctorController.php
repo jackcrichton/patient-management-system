@@ -41,7 +41,7 @@ class DoctorController extends Controller
             'surname' => 'required|max:255',
             'dateOfBirth' => 'date|before:today',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user = User::create([
@@ -93,7 +93,7 @@ class DoctorController extends Controller
             'surname' => 'required',
             'dateOfBirth' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|string|min:6|confirmed',
         ]);
   
         $doctor->title = $request->title;
