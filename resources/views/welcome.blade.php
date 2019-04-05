@@ -95,7 +95,7 @@
                                 <a href="{{ route('receptionist.index') }}" style="text-decoration: none">Home as Receptionist</a>
                             @endif  
                         @else
-                            Hospital Management
+                            Patient Information Management Platform
                         @endauth
                     </div>
 
