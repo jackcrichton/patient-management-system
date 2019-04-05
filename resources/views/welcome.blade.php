@@ -99,7 +99,7 @@
                         @endauth
                     </div>
 
-                    <h2>Liverpool John Moore's Hospital Management Application.</h2>
+                    <h2>Liverpool John Moore's Hospital Management Platform.</h2>
                 </div>
             </div>
         </div>
