@@ -107,7 +107,7 @@
 
 							<div class="row">
 					  			<div class="col-md-6">
-									<p class="card-text">County: {{ $patient->county }}</p>
+									<p class="card-text">Country: {{ $patient->country }}</p>
 								</div>
 
 								<div class="col-md-6">
