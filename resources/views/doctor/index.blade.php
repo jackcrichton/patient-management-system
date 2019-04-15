@@ -10,7 +10,7 @@
 
                         <hr>
 
-                        <h6 class="card-subtitle mb-2 text-muted">Use the search engine below to any patient assigned to you.</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Use the search engine to find a patient.</h6>
 
                         <br>
 
@@ -131,7 +131,7 @@
                                                 <td>{{ $patient->forename }}</td>
                                                 <td>{{ $patient->surname }}</td>
                                                 <td>{{ $patient->dateOfBirth }}</td>
-                                                <td>{{ $patient->sex }}</td>
+                                                <td>{{ ucfirst($patient->sex) }}</td>
                                                 <td>{{ $patient->firstLineAddress }}</td>
                                                 <td>{{ $patient->town }}</td>
                                                 <td>{{ $patient->country }}</td>
@@ -190,7 +190,7 @@
                                                         <td>{{ $patient->forename }}</td>
                                                         <td>{{ $patient->surname }}</td>
                                                         <td>{{ $patient->dateOfBirth }}</td>
-                                                        <td>{{ $patient->sex }}</td>
+                                                        <td>{{ ucfirst($patient->sex) }}</td>
                                                         <td>{{ $patient->firstLineAddress }}</td>
                                                         <td>{{ $patient->town }}</td>
                                                         <td>{{ $patient->country }}</td>

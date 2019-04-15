@@ -24,6 +24,10 @@
 		                	<a href="{{ route('doctor.create') }}">
 								<button type="button" class="btn btn-primary">Create New Doctor</button>
 							</a>
+
+							<a href="{{ route('admin-receptionist.create') }}">
+								<button type="button" class="btn btn-primary">Create New Receptionist</button>
+							</a>
 						</div>
 					</div>
 				</div>	
@@ -92,17 +96,45 @@
 											@endforeach
 										</thead>
 									</table>
-
-									<div class="float-right">
-										{{$doctors->links()}}
-									</div>
 								</div>
 							@endif
-						</div>
+						</h5>
 					</div>
 				</div>
 
 				<br>
+
+				<div class="card">
+					<div class="card-body">
+					    <h5 class="card-title">Receptionist Accounts</h5>
+					    	@if($receptionists->count() == 0)
+					    		<hr>
+					    		
+			    		        <h3 class="text-center">No receptionist users found.</h3>
+		    		        @else	
+							    <div class="table-responsive">
+							        <table class="table">
+										<thead>
+											@foreach($receptionists as $receptionist)
+												<tr>
+													<th>{{ $receptionist->title }} {{ $receptionist->forename }} {{ $receptionist->surname }}</th>
+
+													<th>{{ $receptionist->email }}</th>
+													
+													<th>
+														<a href="{{ route('admin-receptionist.edit', $receptionist->id) }}" class="float-right">
+															<button type="button" class="btn btn-primary">Edit</button>
+														</a>
+													</th>
+												</tr>
+											@endforeach
+										</thead>
+									</table>
+								</div>
+							@endif
+						</h5>
+					</div>
+				</div>
 	        </div>
 	    </div>
 	</div>

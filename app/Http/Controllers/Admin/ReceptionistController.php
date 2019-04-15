@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class DoctorController extends Controller
+class ReceptionistController extends Controller
 {
     public function __construct()
     {
@@ -24,7 +24,7 @@ class DoctorController extends Controller
     {
         $titles = ['Dr', 'Mr', 'Mrs', 'Miss', 'Ms'];
 
-        return view('doctor.create', compact('titles'));
+        return view('admin.receptionist.create', compact('titles'));
     }
 
     /**
@@ -54,10 +54,10 @@ class DoctorController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'active' => true,
-            'role' => 'doctor',
+            'role' => 'receptionist',
         ]);
 
-        flash('Doctor account created.')->success();
+        flash('Receptionist account created.')->success();
 
         return redirect('admin');
                         
@@ -87,9 +87,9 @@ class DoctorController extends Controller
     {
         $titles = ['Dr', 'Mr', 'Mrs', 'Miss', 'Ms'];
 
-        $doctor = User::where('id', $id)->first();
+        $receptionist = User::where('id', $id)->first();
 
-        return view('doctor.edit', compact('doctor', 'titles'));
+        return view('admin.receptionist.edit', compact('receptionist', 'titles'));
     }
 
     /**
@@ -101,7 +101,7 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $doctor = User::where('id', $id)->first();
+        $receptionist = User::where('id', $id)->first();
 
         $request->validate([
             'title' => 'required|max:255',
@@ -111,21 +111,21 @@ class DoctorController extends Controller
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
-  
-        try{
-            
-            $doctor->title = $request->title;
-            $doctor->forename = $request->forename;
-            $doctor->surname = $request->surname;
-            $doctor->dateOfBirth = $request->dateOfBirth;
-            $doctor->email = $request->email;
-            $doctor->password = $request->password;
-            $doctor->save();
-
-            flash('Doctor details updated.')->success();
       
-            return redirect()->action('Admin\AdminController@index');
-                
+        try{
+
+	        $receptionist->title = $request->title;
+	        $receptionist->forename = $request->forename;
+	        $receptionist->surname = $request->surname;
+	        $receptionist->dateOfBirth = $request->dateOfBirth;
+	        $receptionist->email = $request->email;
+	        $receptionist->password = $request->password;
+	        $receptionist->save();
+
+	        flash('Receptionist details updated.')->success();
+	  
+	        return redirect()->action('Admin\AdminController@index');
+
         } catch(\Illuminate\Database\QueryException $e) {
                 
            if($e->getCode() == '23000'){

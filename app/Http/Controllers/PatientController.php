@@ -29,28 +29,26 @@ class PatientController extends Controller
             ->get();
 
         $allPatients = Patient::whereNotIn('id', $myPatients->pluck('id'))
-            ->paginate('10');
+            ->paginate(10);
 
         if($request->has('reset')) {            
             return redirect()->route('patient.index');
         } elseif ($request->has('search')) {
             $newRequest = $request;
 
-            $user = Auth::user();
-
             $myPatients = Patient::where('userAssignedTo', Auth::id())
                 ->where('forename', 'LIKE', '%'.$request->forename.'%')
                 ->where('surname', 'LIKE', '%'.$request->surname.'%')
                 ->where('dateOfBirth', 'LIKE', '%'.$request->dateOfBirth.'%')
                 ->where('postcode', 'LIKE', '%'.$request->postcode.'%')
-                ->paginate('10');
+                ->paginate(10);
 
             $allPatients = Patient::where('forename', 'LIKE', '%'.$request->forename.'%')
                 ->whereNotIn('id', $myPatients->pluck('id'))
                 ->where('surname', 'LIKE', '%'.$request->surname.'%')
                 ->where('dateOfBirth', 'LIKE', '%'.$request->dateOfBirth.'%')
                 ->where('postcode', 'LIKE', '%'.$request->postcode.'%')
-                ->paginate('10');
+                ->paginate(10);
 
             return view('doctor.index', compact('user', 'allPatients', 'myPatients', 'newRequest'));
         }

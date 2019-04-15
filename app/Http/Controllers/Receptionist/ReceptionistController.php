@@ -18,21 +18,33 @@ class ReceptionistController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();   
 
-        $patients = \DB::table('patients')
-            ->orderBy('created_at', 'desc')
-            ->paginate('10');
+        $newRequest = null;
 
-        $doctors = \DB::table('users')
-            ->where('role', 'doctor')
-            ->orderBy('created_at', 'desc');
-    
-        return view('receptionist.index', compact('patients', 'doctors', 'user'));
+        $allPatients = Patient::orderBy('created_at', 'desc')->paginate(10);
+
+        if($request->has('reset')) {            
+            return redirect()->route('receptionist.index');
+        } elseif ($request->has('search')) {
+            $newRequest = $request;
+
+            $allPatients = Patient::where('forename', 'LIKE', '%'.$request->forename.'%')
+                ->where('surname', 'LIKE', '%'.$request->surname.'%')
+                ->where('dateOfBirth', 'LIKE', '%'.$request->dateOfBirth.'%')
+                ->where('postcode', 'LIKE', '%'.$request->postcode.'%')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+
+            return view('receptionist.index', compact('user', 'allPatients', 'newRequest'));
+        }
+
+        return view('receptionist.index', compact('user', 'allPatients', 'newRequest'));
     }
 
     /**
@@ -174,7 +186,7 @@ class ReceptionistController extends Controller
 
         flash('Patient details updated.')->success();
 
-        return redirect()->route('receptionist.index');
+        return redirect()->route('receptionist.show', $patient->id);
     }
 
     /**

@@ -53,7 +53,7 @@
 
 							<div class="row">
 					  			<div class="col-md-6">
-									<p class="card-text">Sex: {{ $patient->sex }}</p>
+									<p class="card-text">Sex: {{ ucfirst($patient->sex) }}</p>
 								</div>
 
 								<div class="col-md-6">

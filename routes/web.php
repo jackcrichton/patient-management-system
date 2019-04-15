@@ -18,6 +18,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::group(['namespace' => 'Admin', 'middleware' => ['isAdmin', 'auth']], function() {
 	Route::resource('admin', 'AdminController')->middleware('isAdmin');
 	Route::resource('doctor', 'DoctorController')->middleware('isAdmin');
+	Route::resource('admin-receptionist', 'ReceptionistController')->middleware('isAdmin');
 });
 
 Route::group(['middleware' => ['isDoctor', 'auth']], function() {   
