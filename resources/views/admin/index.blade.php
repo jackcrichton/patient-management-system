@@ -17,16 +17,16 @@
 	                	<div class="float-right">
 							@if(Auth::user()->role == 'superadmin') 
 								<a href="{{ route('admin.create') }}">
-									<button type="button" class="btn btn-primary">Create New Admin</button>
+									<button type="button" class="btn btn-success">Create New Admin</button>
 								</a>
 							@endif	
 
 		                	<a href="{{ route('doctor.create') }}">
-								<button type="button" class="btn btn-primary">Create New Doctor</button>
+								<button type="button" class="btn btn-success">Create New Doctor</button>
 							</a>
 
 							<a href="{{ route('admin-receptionist.create') }}">
-								<button type="button" class="btn btn-primary">Create New Receptionist</button>
+								<button type="button" class="btn btn-success">Create New Receptionist</button>
 							</a>
 						</div>
 					</div>

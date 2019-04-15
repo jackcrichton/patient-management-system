@@ -62,13 +62,13 @@
                             </div>
 
                             <a class="float-left" style="margin-right: 10px">
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     All Patients ({{ $allPatients->count() }})
                                 </button>
                             </a>
 
                             <a class="float-left">
-                                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     My Patients ({{ $myPatients->count() }})
                                 </button>
                             </a>

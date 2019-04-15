@@ -82,63 +82,69 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">           
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-
+                <div class="card">
+                    <div class="card-header">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Patients ({{ $allPatients->count() }}) 
-                            </button>
+                            Patients
                         </h5>
+
+                        <hr>
+                    
+                        <a href="{{ route('receptionist.create') }}" class="float-right">
+                            <button type="submit" class="btn btn-success">
+                                Add Patient
+                            </button>
+                        </a>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            @if(count($allPatients) == 0)
-                                <h3 class="text-center">No patients found.</h3>
-                            @else
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Forename</th>
-                                            <th scope="col">Surname</th>
-                                            <th scope="col">DOB</th>
-                                            <th scope="col">Sex</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Town</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Postcode</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
+                    <div class="card-body">
+                        @if(count($allPatients) == 0)
+                            <h3 class="text-center">No patients found.</h3>
+                        @else
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Forename</th>
+                                        <th scope="col">Surname</th>
+                                        <th scope="col">DOB</th>
+                                        <th scope="col">Sex</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Town</th>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">Postcode</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-                                    <tbody>
-                                        @foreach($allPatients as $patient)
-                                            <tr>
-                                                <td>{{ $patient->title }}</td>
-                                                <td>{{ $patient->forename }}</td>
-                                                <td>{{ $patient->surname }}</td>
-                                                <td>{{ $patient->dateOfBirth }}</td>
-                                                <td>{{ ucfirst($patient->sex) }}</td>
-                                                <td>{{ $patient->firstLineAddress }}</td>
-                                                <td>{{ $patient->town }}</td>
-                                                <td>{{ $patient->country }}</td>
-                                                <td>{{ $patient->postcode }}</td>
-                                                <td>
-                                                    <a href="{{ route('receptionist.show', $patient->id) }}">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            View
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            @endif
-                        </div>
+                                <tbody>
+                                    @foreach($allPatients as $patient)
+                                        <tr>
+                                            <td>{{ $patient->title }}</td>
+                                            <td>{{ $patient->forename }}</td>
+                                            <td>{{ $patient->surname }}</td>
+                                            <td>{{ $patient->dateOfBirth }}</td>
+                                            <td>{{ ucfirst($patient->sex) }}</td>
+                                            <td>{{ $patient->firstLineAddress }}</td>
+                                            <td>{{ $patient->town }}</td>
+                                            <td>{{ $patient->country }}</td>
+                                            <td>{{ $patient->postcode }}</td>
+                                            <td>
+                                                <a href="{{ route('receptionist.show', $patient->id) }}">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        View
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <div class="float-right">
+                                {{ $allPatients->links() }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

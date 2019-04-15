@@ -27,7 +27,7 @@ class ReceptionistController extends Controller
 
         $newRequest = null;
 
-        $allPatients = Patient::orderBy('created_at', 'desc')->paginate(10);
+        $allPatients = Patient::orderBy('created_at', 'desc')->paginate('10');
 
         if($request->has('reset')) {            
             return redirect()->route('receptionist.index');
