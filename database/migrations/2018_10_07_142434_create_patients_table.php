@@ -24,7 +24,7 @@ class CreatePatientsTable extends Migration
             $table->string('town');
             $table->string('country');
             $table->string('postcode');
-            $table->integer('mobileNo')->length(11);
+            $table->integer('mobileNo');
             $table->string('email')->nullable();
             $table->integer('userAssignedTo')->unsigned()->nullable();
             $table->foreign('userAssignedTo')->references('id')->on('users'); 
